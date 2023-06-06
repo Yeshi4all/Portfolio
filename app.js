@@ -42,7 +42,6 @@ app.get('/service',(req,res)=>{
     res.render('service')
 })
 
-
 //Listen on port 3000
 //app.listen(port,() => console.info('listening on port' + port))
 app.listen(process.env.PORT || 80)
