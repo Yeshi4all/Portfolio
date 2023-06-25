@@ -1,0 +1,144 @@
+<!-- //=========================================================================
+//Student
+//=========================================================================
+/**
+ * Name: Yeshi Ngawang
+ * Id: 301302902
+ */ -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="wodth=device-width, initial-scale=1.0">
+        <title>Contact List</title>
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Amatic+SC:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+        <!-- Vendor CSS Files -->
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+
+        <link href="aos/aos.css" rel="stylesheet">
+        <link href="glightbox/css/glightbox.min.css" rel="stylesheet">
+        <link href="swiper/swiper-bundle.min.css" rel="stylesheet">
+
+        <!-- Template Main CSS File -->
+        <link href="css/main.css" rel="stylesheet" >
+    </head>
+    <body>
+        <header id="header" class="header fixed-top d-flex align-items-center">
+            <div class="container d-flex align-items-center justify-content-between">
+                <a href="./home" class="logo d-flex align-items-center me-auto me-lg-0">
+                    <!-- <img src="img/logo.jpg" alt="---Yeshi---"> -->
+                    <h1>Yeshi's<span>.</span></h1>
+                  </a>
+                  <nav id="navbar" class="navbar">
+                    <ul>
+                        <li><a href="./home">Home</a></li>
+                        <li><a href="./aboutme">About me</a></li>
+                        <li><a href="./project">Projects</a></li>
+                        <li><a href="./service">Services</a></li>
+                        <li><a href="./contactme">Contac me</a></li>
+                        <li><a href="./login">Login</a></li>
+                    </ul>
+                  </nav>
+            </div>
+        </header>
+
+        <section id="login" >
+            <div class="container" data-aos="fade-up">
+                <div class="section-header">
+                    <p><span>Contacts.</span></p>
+                </div>
+
+                <div>
+                    <table id="connectionsTable" class="table table-hover">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Contact Name</th>
+                                <th scope="col">Contact Number</th>
+                                <th scope="col">Email Address</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <% contacts.forEach(function(contact) { %>
+                            <tr id="<%= contact._id %>">
+                              <td scope="row"><%= contact.name %></td>
+                              <td scope="row"><%= contact.phonenumber %></td>
+                              <td scope="row"><%= contact.email %></td>
+                              <td scope="row">
+                                <button class="btn btn-primary deleteBtn" data-id="<%= contact._id %>">Delete</button>
+                                <button class="btn btn-primary updateBtn" data-id="<%= contact._id %>">Update</button>
+                              </td>
+                            </tr>
+                            <% }); %>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+        <div id="preloader"></div>
+        <!-- Vendor JS Files -->
+        <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="aos/aos.js"></script>
+        <script src="glightbox/js/glightbox.min.js"></script>
+        <script src="purecounter/purecounter_vanilla.js"></script>
+        <script src="swiper/swiper-bundle.min.js"></script>
+
+        <!-- Template Main JS File -->
+        <script src="js/main.js"></script>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+              const deleteButtons = document.querySelectorAll('.deleteBtn');
+        
+              deleteButtons.forEach((deleteBtn) => {
+                deleteBtn.addEventListener('click', (event) => {
+                  const contactId = deleteBtn.dataset.id;
+        
+                  if (!contactId) {
+                    console.error('Invalid contact ID');
+                    return;
+                  }
+        
+                  fetch(`/delete/${contactId}`, {
+                    method: 'DELETE',
+                  })
+                    .then((response) => {
+                      if (response.ok) {
+                        event.target.closest('tr').remove();
+                      } else {
+                        throw new Error('Failed to delete the contact');
+                      }
+                    })
+                    .catch((error) => {
+                      console.error('Error deleting contact:', error);
+                    });
+                });
+              });
+            });
+        
+            const updateButtons = document.querySelectorAll('.updateBtn');
+        
+            updateButtons.forEach((updateBtn) => {
+              updateBtn.addEventListener('click', () => {
+                const contactId = updateBtn.dataset.id;
+        
+                if (!contactId) {
+                  console.error('Invalid contact ID');
+                  return;
+                }
+        
+                window.location.href = `/update/${contactId}`;
+              });
+            });
+          </script>
+       
+    </body>
+</html>

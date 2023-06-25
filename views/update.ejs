@@ -1,0 +1,405 @@
+<!-- //=========================================================================
+//Student
+//=========================================================================
+/**
+ * Name: Yeshi Ngawang
+ * Id: 301302902
+ */ -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="wodth=device-width, initial-scale=1.0">
+        <title>Contact List</title>
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Amatic+SC:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+        <!-- Vendor CSS Files -->
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+
+        <link href="aos/aos.css" rel="stylesheet">
+        <link href="glightbox/css/glightbox.min.css" rel="stylesheet">
+        <link href="swiper/swiper-bundle.min.css" rel="stylesheet">
+
+        <!-- Template Main CSS File -->
+        <link href="css/main.css" rel="stylesheet" >
+
+    <style>
+        /* Fonts */
+        :root {
+            --font-default: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            --font-primary: "Amatic SC", sans-serif;
+            --font-secondary: "Inter", sans-serif;
+        }
+        .centerCustom {
+            margin: auto;
+            width: 50%;
+            padding: 10px;
+        }
+        /* Colors */
+        :root {
+            --color-default: #212529;
+            --color-primary: #ce1212;
+            --color-secondary: #37373f;
+        }
+        
+        /* Smooth scroll behavior */
+        :root {
+            scroll-behavior: smooth;
+        }
+        .menu .tab-content .tab-header {
+            padding: 30px 0;
+        }
+        
+        .menu .tab-content .tab-header p {
+            font-size: 14px;
+            text-transform: uppercase;
+            color: #676775;
+            margin-bottom: 0;
+        }
+        .testimonials .section-header {
+            margin-bottom: 40px;
+        }
+        
+        .menu .tab-content .tab-header h3 {
+            font-size: 36px;
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+        /*--------------------------------------------------------------
+        # Header
+        --------------------------------------------------------------*/
+        .header {
+            background: #fff;
+            transition: all 0.5s;
+            z-index: 997;
+            height: 90px;
+            border-bottom: 1px solid #fff;
+        }
+        
+        @media (max-width: 575px) {
+            .header {
+            height: 70px;
+            }
+        }
+        
+        .header.sticked {
+            border-color: #fff;
+            border-color: #eee;
+        }
+        
+        .header .logo img {
+            max-height: 40px;
+            margin-right: 6px;
+        }
+        
+        .header .logo h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #000;
+            margin: 0;
+            font-family: var(--font-secondary);
+        }
+        
+        .header .logo h1 span {
+            color: var(--color-primary);
+        }
+        
+        .header .btn-book-a-table,
+        .header .btn-book-a-table:focus {
+            font-size: 14px;
+            color: #fff;
+            background: var(--color-primary);
+            padding: 8px 20px;
+            margin-left: 30px;
+            border-radius: 50px;
+            transition: 0.3s;
+        }
+        
+        .header .btn-book-a-table:hover,
+        .header .btn-book-a-table:focus:hover {
+            color: #fff;
+            background: rgba(206, 18, 18, 0.8);
+        }
+        
+        section {
+            scroll-margin-top: 90px;
+        }
+        /*--------------------------------------------------------------
+        # Contact Section
+        --------------------------------------------------------------*/
+        .contact .info-item {
+            background: #f4f4f4;
+            padding: 30px;
+            height: 100%;
+        }
+    
+        .contact .info-item .icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 56px;
+            height: 56px;
+            font-size: 24px;
+            line-height: 0;
+            color: #fff;
+            background: var(--color-primary);
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+    
+        .contact .info-item h3 {
+            font-size: 20px;
+            color: #6c757d;
+            font-weight: 700;
+            margin: 0 0 5px 0;
+        }
+    
+        .contact .info-item p {
+            padding: 0;
+            margin: 0;
+            line-height: 24px;
+            font-size: 14px;
+        }
+    
+        .contact .info-item .social-links a {
+            font-size: 24px;
+            display: inline-block;
+            color: rgba(55, 55, 63, 0.7);
+            line-height: 1;
+            margin: 4px 6px 0 0;
+            transition: 0.3s;
+        }
+    
+        .contact .info-item .social-links a:hover {
+            color: var(--color-primary);
+        }
+    
+        .contact .php-email-form {
+            width: 100%;
+            margin-top: 30px;
+            background: #fff;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.08);
+        }
+    
+        .contact .php-email-form .form-group {
+            padding-bottom: 20px;
+        }
+    
+        .contact .php-email-form .error-message {
+            display: none;
+            color: #fff;
+            background: #df1529;
+            text-align: left;
+            padding: 15px;
+            font-weight: 600;
+        }
+    
+        .contact .php-email-form .error-message br+br {
+            margin-top: 25px;
+        }
+    
+        .contact .php-email-form .sent-message {
+            display: none;
+            color: #fff;
+            background: #059652;
+            text-align: center;
+            padding: 15px;
+            font-weight: 600;
+        }
+    
+        .contact .php-email-form .loading {
+            display: none;
+            background: #fff;
+            text-align: center;
+            padding: 15px;
+        }
+    
+        .contact .php-email-form .loading:before {
+            content: "";
+            display: inline-block;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            margin: 0 10px -6px 0;
+            border: 3px solid #059652;
+            border-top-color: #fff;
+            animation: animate-loading 1s linear infinite;
+        }
+    
+        .contact .php-email-form input,
+        .contact .php-email-form textarea {
+            border-radius: 0;
+            box-shadow: none;
+            font-size: 14px;
+        }
+    
+        .contact .php-email-form input:focus,
+        .contact .php-email-form textarea:focus {
+            border-color: var(--color-primary);
+        }
+    
+        .contact .php-email-form input {
+            height: 48px;
+        }
+    
+        .contact .php-email-form textarea {
+            padding: 10px 12px;
+        }
+    
+        .contact .php-email-form button[type=submit] {
+            background: var(--color-primary);
+            border: 0;
+            padding: 12px 40px;
+            color: #fff;
+            transition: 0.4s;
+            border-radius: 50px;
+        }
+    
+        .contact .php-email-form button[type=submit]:hover {
+            background: #ec2727;
+        }
+    
+        @keyframes animate-loading {
+            0% {
+            transform: rotate(0deg);
+            }
+    
+            100% {
+            transform: rotate(360deg);
+            }
+        }
+
+        /*--------------------------------------------------------------
+        # Sections & Section Header
+        --------------------------------------------------------------*/
+        section {
+            overflow: hidden;
+            padding: 80px 0;
+        }
+    
+        .section-bg {
+            background-color: #eee;
+        }
+    
+        .section-header {
+            text-align: center;
+            padding-bottom: 30px;
+        }
+    
+        .section-header h2 {
+            font-size: 13px;
+            letter-spacing: 1px;
+            font-weight: 400;
+            margin: 0;
+            padding: 0;
+            color: #7f7f90;
+            text-transform: uppercase;
+            font-family: var(--font-default);
+        }
+    
+        .section-header p {
+            margin: 0;
+            font-size: 48px;
+            font-weight: 400;
+            font-family: var(--font-primary);
+        }
+    
+        .section-header p span {
+            color: var(--color-primary);
+        }
+        
+        body {
+            font-family: var(--font-default);
+            color: var(--color-default);
+        }
+    
+        a {
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+    
+        a:hover {
+            color: #ec2727;
+            text-decoration: none;
+        }
+    
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: var(--font-secondary);
+        }
+        a {
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+    </style>
+
+        
+    </head>
+
+    <body>
+        
+        <section id="login" class="contact">
+            <div class="container" data-aos="fade-up">
+                <div class="section-header">
+                    <p><span>Update.</span></p>
+                </div>
+
+                <div class="centerCustom">
+                    <form id="updateForm" role="form" method="POST" action="/update/<%= contactId %>" class="text-center php-email-form p-3 p-md-4">
+                        <div class="col-xl-12">
+                            <div class="form-group">
+                                <label for="name">Name:</label>
+                            </div>
+                            <div class="text-center form-group">
+                                <input type="text" id="name" class="form-control rounded-input" name="name" >
+                            </div>
+
+                            <div class="text-center form-group">
+                                <label for="number">Contact Number:</label>
+                            </div>
+                            <div class="text-center form-group">
+                                <input type="text" id="number" class="form-control rounded-input" name="number" >
+                            </div>
+
+                            <div class="text-center form-group">
+                                <label for="email">Email Address:</label>
+                            </div>
+                            <div class="text-center form-group">
+                                <input type="email" id="email" class="form-control rounded-input" name="email" >
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit">Update</button>
+                            <a type = "button" id="cancelBtn" href="/contact">Cancel</a>
+                        </div>
+                      </form>
+                </div>
+            </div>
+        </section>
+
+        <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+        <div id="preloader"></div>
+        <!-- Vendor JS Files -->
+        <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="aos/aos.js"></script>
+        <script src="glightbox/js/glightbox.min.js"></script>
+        <script src="purecounter/purecounter_vanilla.js"></script>
+        <script src="swiper/swiper-bundle.min.js"></script>
+
+        <!-- Template Main JS File -->
+        <script src="js/main.js"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="update.js"></script>
+    </body>
+</html>

@@ -11,7 +11,11 @@
     --font-primary: "Amatic SC", sans-serif;
     --font-secondary: "Inter", sans-serif;
   }
-  
+  .centerCustom {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+  }
   /* Colors */
   :root {
     --color-default: #212529;
